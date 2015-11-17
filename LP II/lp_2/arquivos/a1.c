@@ -1,0 +1,39 @@
+  #include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char const *argv[])
+{
+    FILE *fp;
+    int *v, n = 0, *maior, *menor, soma = 0, i;
+
+    if ((fp = fopen("vetor.txt", "r")) == NULL)
+        exit(-1);
+    while(!feof(fp))
+    {
+        fscanf(fp, "%d", &soma);
+        n++;
+    }
+    n--;
+    rewind(fp);
+    v = malloc(n * sizeof(int));
+    maior = &v[0];
+    menor = &v[0];
+
+    for(i = 0; i < n; i++)
+    {
+        fscanf(fp,"%d",&v[i]);
+        soma += v[i];
+    }
+    fclose(fp);
+    for(i = 0; i < n; i++)
+    {
+        if(*maior < v[i])
+            maior = &v[i];
+        if(*menor > v[i])
+            menor = &v[i];
+    }
+
+    printf("Maior: %d\nMenor: %d\n %d", *maior, *menor, v[0]);
+
+    return 0;
+}
