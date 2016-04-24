@@ -46,8 +46,10 @@ class Fracao():
         else:
             return 0
 
-fracao1 = Fracao(2,5)#Atributo
-fracao2 = Fracao(1,4)#Atributo
+fracao1 = Fracao(2, 5)#Atributo
+fracao2 = Fracao(1, 4)#Atributo
+print("Fracao 1: %s" % fracao1.toString())
+print("Fracao 2: %s" % fracao2.toString())
 
 fracao3 = fracao1.soma(fracao2)#Soma
 fracao4 = fracao1.subtracao(fracao2)#Subtracao
@@ -55,8 +57,6 @@ fracao5 = fracao1.produto(fracao2)#Produto
 fracao6 = fracao1.divisao(fracao2)#Divisao
 diferenca = fracao1.compara(fracao2)#Compara
 
-print("Fracao 1: %s" % fracao1.toString())
-print("Fracao 2: %s" % fracao2.toString())
 print("Soma de fracao 1 e 2: %s" % fracao3.toString())
 print("Subtracao de fracao 1 e 2: %s" % fracao4.toString())
 print("Produto de fracao 1 e 2: %s" % fracao5.toString())
