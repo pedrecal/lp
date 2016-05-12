@@ -1,8 +1,7 @@
 from carro import Carro
 from configurador import Configurador
 
-carro1 = 
-carro2 =
-carro3 =
-carro4 =
-carro5 =
+carro1 = Carro("ar_condicionado")
+carro1.instalaOpcional("ar_condicionado")
+
+print ("%s" % carro1.getValor())

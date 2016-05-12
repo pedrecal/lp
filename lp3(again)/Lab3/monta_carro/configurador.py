@@ -1,3 +1,7 @@
+from carro import Carro
+
 class Configurador():
 
-    def 
+    def recebeCarro(self):
+        total += Carro.getValor()
+        return total

@@ -1,32 +1,33 @@
 class Carro():
 
-    def __init_(self, ar_condicionado, vidro_eletrico, direcao_hidraulica, sensor_estacionamento, sensor_estacionamento, teto_solar, roda_liga):
+    def __init__(self, ar_condicionado):
         self.ar_condicionado = ar_condicionado
-        self.vidro_eletrico = vidro_eletrico
-        self.direcao_hidraulica = direcao_hidraulica
-        self.sensor_estacionamento = sensor_estacionamento
-        self.teto_solar = teto_solar
-        self.roda_liga = roda_liga
 
-    def instalaOpcional(self, acessorios):
-        if acessorios == 'ar_condicionado': #1500
-            self.ar_condicionado = 1
-        elif acessorios == 'vidro_eletrico': #600
-            self.vidro_eletrico = 1
-        elif acessorios == 'direcao_hidraulica': #1150
-            self.direcao_hidraulica = 1
-        elif acessorios == 'sensor_estacionamento': #300
-            self.sensor_estacionamento = 1
-        elif acessorios == 'teto_solar': #4000
-            self.teto_solar = 1
-        elif acessorios == 'roda_liga': #2850
-            self.roda_liga = 1
+    def instalaOpcional(self, ar_condicionado):
+        if self.ar_condicionado == 'ar_condicionado': #1500
+            ar_condicionado = 1
+            contabilizaAcessorio()
+        elif self.acessorios == 'vidro_eletrico': #600
+            vidro_eletrico = 1
+            contabilizaAcessorio()
+        elif self.acessorios == 'direcao_hidraulica': #1150
+            direcao_hidraulica = 1
+            contabilizaAcessorio()
+        elif self.acessorios == 'sensor_estacionamento': #300
+            sensor_estacionamento = 1
+            contabilizaAcessorio()
+        elif self.acessorios == 'teto_solar': #4000
+            teto_solar = 1
+            contabilizaAcessorio()
+        elif self.acessorios == 'roda_liga': #2850
+            roda_liga = 1
+            contabilizaAcessorio()
+        return
 
     @staticmethod
     def contabilizaAcessorio(self):
-
-
-
+        num_acessorio += 1
+        return None
 
     def getValor(self):
-        return 2900 + (self.ar_condicionado * 1500) + (self.vidro_eletrico * 600) + (self.direcao_hidraulica * 1150) + (self.sensor_estacionamento * 300) + (self.teto_solar * 4000) + (self.roda_liga * 2850)
+        return 2900 + (ar_condicionado * 1500) + (vidro_eletrico * 600) + (direcao_hidraulica * 1150) + (sensor_estacionamento * 300) + (teto_solar * 4000) + (roda_liga * 2850)
