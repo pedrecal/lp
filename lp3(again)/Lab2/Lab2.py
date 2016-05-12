@@ -20,7 +20,7 @@ class Paciente():
         totalDia = Paciente.calculaKcaloria(self)
         if (totalDia >= (consKcal + self.calorias)):
             self.calorias = consKcal + self.calorias
-            print('Calorias consumidas com sucesso! Faltam %s' % (totalDia - self.calorias))
+            msg = ('Calorias consumidas com sucesso! Faltam %s' % (totalDia - self.calorias))
         else:
-            print("Nao e permitido consumir essas calorias! %s calorias diarias consumidas de um total de %s" % (self.calorias, totalDia))
-        return
+            msg = ("Nao e permitido consumir essas calorias! %s calorias diarias consumidas de um total de %s" % (self.calorias, totalDia))
+        return msg

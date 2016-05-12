@@ -8,7 +8,7 @@ int main ()
 
 	printf("Digite uma frase: ");
 	gets(str1);
-	
+
 	while(str1[i] != '\0')
 		printf("%c\n", str1[i++]);
 
