@@ -1,5 +1,11 @@
 class Carro:
-    contabiliza = 0 #Toda variavel a nivel de classe e estatica em python
+    contabiliza = 0
+    acessorios = {'ar_condicionado' : 0,
+                    'vidro_eletrico' : 0,
+                    'direcao_hidraulica' : 0,
+                    'sensor_estacionamento' : 0,
+                    'teto_solar' : 0,
+                    'roda_liga' : 0}
 
     def __init__(self, contabiliza=0, ar_condicionado = 0, vidro_eletrico = 0, direcao_hidraulica = 0, sensor_estacionamento = 0, teto_solar = 0, roda_liga = 0):
         self.contabiliza = contabiliza
@@ -10,31 +16,33 @@ class Carro:
         self.teto_solar = teto_solar
         self.roda_liga = roda_liga
 
+
     @staticmethod
-    def contabilizaAcessorio():
-        Carro.contabiliza += 1
-        return Carro.contabiliza -1
+    def contabilizaAcessorio(acessorio):
+        Carro.acessorios[acessorio] += 1
+        return Carro.contabiliza
+
 
     def instalaOpcional(self, recebe):
         acessorios = ["ar_condicionado" , "vidro_eletrico", "direcao_hidraulica", "sensor_estacionamento", "teto_solar", "roda_liga"]
         if recebe == acessorios[0]:
             self.ar_condicionado = 1
-            self.contabilizaAcessorio()
+            self.contabilizaAcessorio(acessorios[0])
         elif recebe == acessorios[1]:
             self.vidro_eletrico = 1
-            self.contabilizaAcessorio()
+            self.contabilizaAcessorio(acessorios[1])
         elif recebe == acessorios[2]:
             self.direcao_hidraulica = 1
-            self.contabilizaAcessorio()
+            self.contabilizaAcessorio(acessorios[2])
         elif recebe == acessorios[3]:
             self.sensor_estacionamento = 1
-            self.contabilizaAcessorio()
+            self.contabilizaAcessorio(acessorios[3])
         elif recebe == acessorios[4]:
             self.teto_solar = 1
-            self.contabilizaAcessorio()
+            self.contabilizaAcessorio(acessorios[4])
         elif recebe == acessorios[5]:
             self.roda_liga = 1
-            self.contabilizaAcessorio()
+            self.contabilizaAcessorio(acessorios[5])
         return None
 
     def getValor(self):
