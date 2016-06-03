@@ -4,3 +4,13 @@ Instanciar obj
 
 03/05
 Variável Estática
+/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#
+31/05
+Classe Abstrata
+Vai ter uma classe generica com um metodo generico que vai ser especificado quando apresentado algo
+Classe: Animal
+Metodo: Barulho
+
+Animal: Cachorro
+Barulho: Latido
+/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#
