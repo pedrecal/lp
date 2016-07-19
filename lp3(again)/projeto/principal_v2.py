@@ -31,7 +31,6 @@ class FonteDeExpressoes(Expressao):
 
     def lista (self, nivel, tipo, expressao, resposta):
         expressoes = []
-        super(Expressao, self).__init__()
         Expressao.nivel = nivel
         Expressao.tipo = tipo
         Expressao.expressao = expressao
@@ -46,9 +45,13 @@ class FonteDeExpressoes(Expressao):
 
 class Dificultador(metaclass=ABCMeta):
     #classe abstrata que vai ser super classe de DificultadorNivel e DificultadorTipo
+    @abstractmethod
+    def Sort(self):
+        pass
 
-
-
+class DificultadorNivel(Dificultador, FonteDeExpressoes):
+    def Sort(self,expressoes):
+        FonteDeExpressoes.expressoes = expressoes
 
 
 class MotorDoJogo():
