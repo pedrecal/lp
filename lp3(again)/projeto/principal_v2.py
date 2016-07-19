@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 # ! /bin/env python
+import random
+from abc import ABCMeta, abstractmethod
+
 
 def cls():
     os.system(['clear', 'cls'][os.name == 'nt'])
@@ -15,31 +18,42 @@ def Opcoes():#Menu
     except Exception, e:
         print u'Opção Inválida'
 
-class Expressao:
+class Expressao(object):
 
     def __init__(self, nivel, tipo, expressao, resposta):
         self.nivel = nivel
         self.tipo = tipo
         self.expressao = expressao
-        self.resposta = respostaes
+        self.resposta = resposta
 
 class FonteDeExpressoes(Expressao):
     import csv
 
-    def lista (self):
+    def lista (self, nivel, tipo, expressao, resposta):
         expressoes = []
+        super(Expressao, self).__init__()
         Expressao.nivel = nivel
         Expressao.tipo = tipo
         Expressao.expressao = expressao
         Expressao.resposta = resposta
 
-        with open('exp.txt') as fin, open('expt.txt', 'w') as fout:
-            for line in fin:
-                fout.write(line.replace'\t', ',')
-            for line in fout:
-                expressoes.append(Expressao(fout.readlines()))
+        with open('exp.txt') as f:
+            for line in f:
+                row = line.split('\t')
+                exp = Expressao(row[0], row[1], row[2], row[3])
+                expressoes.append(exp)
+        return expressoes
 
-class Dificultador(FonteDeExpressoes):
+class Dificultador(metaclass=ABCMeta):
+    #classe abstrata que vai ser super classe de DificultadorNivel e DificultadorTipo
+
+
+
+
+
+class MotorDoJogo():
+    #Essa classe deve deve dar os tipos de jogo, fase, treino, morte súbita
+
 
 
 
