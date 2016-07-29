@@ -45,24 +45,24 @@ def DificultadorTipo(self):
 
 Dicio = {1: DificultadorNivel, 2: DificultadorTipo}
 
+class MotorDoJogo(object):
+    def MandaExp(self):
+        pass
+    def Resposta(self):
+        pass
+    def Erro(self):
+        pass
+
 class MotorDoJogoSP(object):
     import operator
-    def SemParar(dif):
-        Dificultador.Sort = Dicio[1]#mudar pra variavel que recebe
+    def MandaExp(dif):
+        Dificultador.Sort = Dicio[dif]
         expr = Dificultador().Sort()
         exp = [operator.attrgetter('expressao')(x) for x in expr]
-        resp = [operator.attrgetter('resposta')(x) for x in expr]
-        print exp
-        print resp
-        #receber resposta
-        #verificar resposta
-            #se certo printa parabens
-            #se errado diz correto
-        #printa outra
-        #while até FINAL
+
 
 class MotorDoJogoTresVidas(object):
-    def TresVidas(self, dif):
+    def MandaExp(self, dif):
         self.dif = dif
         BaseDificultador(dif)
         #printar expressão
@@ -72,3 +72,18 @@ class MotorDoJogoTresVidas(object):
             #se errado diz correto e contador +1
         #printa outra
         #while até FINAL && while contador != 3
+
+class Main(object):
+    def Main():
+        print("Bem vindo ao jogo de expressões matemáticas!")
+        print("1 - Sem Parar. Jogue até cansar! Caso queira sair, aperte Ctrl + D")
+        print("2 - Três Vidas. Errou três vezes, já era vacilão!")
+        print ''
+        try:
+            modo = int(raw_input("Selecione um modo: "))
+            return modo
+            pass
+        except Exception, e:
+            print u'Opção Inválida'
+        cls()
+        if modo == 1:
