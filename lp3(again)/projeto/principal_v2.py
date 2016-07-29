@@ -28,14 +28,8 @@ class Expressao(object):
 
 class FonteDeExpressoes(Expressao):
     import csv
-
-    def lista (self, nivel, tipo, expressao, resposta):
+    def lista (self):
         expressoes = []
-        Expressao.nivel = nivel
-        Expressao.tipo = tipo
-        Expressao.expressao = expressao
-        Expressao.resposta = resposta
-
         with open('exp.txt') as f:
             for line in f:
                 row = line.split('\t')
@@ -43,26 +37,73 @@ class FonteDeExpressoes(Expressao):
                 expressoes.append(exp)
         return expressoes
 
-class Dificultador(metaclass=ABCMeta):
+class Dificultador(object):
     #classe abstrata que vai ser super classe de DificultadorNivel e DificultadorTipo
+    from abc import ABCMeta, abstractmethod
+    __metaclass__ = ABCMeta
     @abstractmethod
-    def Sort(self):
+    def Sort(self, expressoes):
         pass
 
-class DificultadorNivel(Dificultador, FonteDeExpressoes):
-    def Sort(self,expressoes):
-        FonteDeExpressoes.expressoes = expressoes
+def DificultadorNivel(expressoes):#Faz um sort da lista de expressoes em niveis
+    expressoes = FonteDeExpressoes().lista()
+    expnivel = sorted(expressoes, key=lambda x: x.nivel)
+    return expnivel
+
+def DificultadorTipo(expressoes):#Faz um sort da lista de expressoes em tipo
+    expressoes = FonteDeExpressoes().lista()
+    exptipo = sorted(expressoes, key=lambda x: x.tipo)
+    return exptipo
+
+dif = {1: DificultadorNivel, 2: DificultadorTipo}
 
 
-class MotorDoJogo():
+class MotorDoJogo(object):
     #Essa classe deve deve dar os tipos de jogo, fase, treino, morte súbita
+        from abc import ABCMeta, abstractmethod
+        __metaclass__ = ABCMeta
+        @abstractmethod
+        def jogo(self):
+            pass
 
-
+class SemParar(MotorDoJogo):
+    from Dificultador import Sort
+    def jogo(self):
+        expatual =
 
 
 #################SELEÇÃO DO MENU, FICAR NO FINAL#################
 while True:
     opcao = Opcoes()
     if opcao == 1:
-        #FUNC DE INICIAR JOGO
+        cls()
+        print "--------------JOGO DAS EQUAÇÕES----------------"
+        print "Escolha o método de jogo:"
+        print "1 - Sem Parar"
+        print "2 - Três Vidas"
+        try:
+            modo = int(raw_input('Escolha Uma Opção: '))
+            return modo
+            pass
+        except Exception, e:
+            print u'Opção Inválida'
+
+        if modo == 1:
+            cls()
+            print 'Escolha o método de dificuldade:'
+            print "1 - Por tipo de expressão"
+            print "2 - Por nível de equação"
+            try:
+                dificult = int(raw_input('Escolha Uma Opção: '))
+                return dificult
+                pass
+            except Exception, e:
+                print u'Opção Inválida'
+
+        if dificult == 1:
+            cls()
+            Dificultador.sort = dif[dificult]
+
+
+
     pass
